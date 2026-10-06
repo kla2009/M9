@@ -40,9 +40,9 @@ function Home() {
         <h1>
           Spirit.
           <br />
-          <span>Modern.</span>
+          <span>Unity.</span>
           <br />
-          Powerful.
+          Never Give Up.
         </h1>
 
         <p className="description">
