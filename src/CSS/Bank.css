@@ -36,6 +36,10 @@
   margin: 6px 0 0;
   font-size: 32px;
   font-weight: 900;
+  letter-spacing: 0 !important;
+  line-height: 1.25;
+  display: block;
+  white-space: normal;
 }
 
 .bank-header p {

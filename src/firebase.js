@@ -1,10 +1,12 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
+import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCOdPWxE3SsQbNLXQKEzaZsZomndafvmgc",
   authDomain: "m9-admin.firebaseapp.com",
-  databaseURL: "https://m9-admin-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  databaseURL:
+    "https://m9-admin-default-rtdb.asia-southeast1.firebasedatabase.app/",
   projectId: "m9-admin",
   storageBucket: "m9-admin.firebasestorage.app",
   messagingSenderId: "915199873066",
@@ -12,6 +14,12 @@ const firebaseConfig = {
   measurementId: "G-C6DSS7MP41"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(
+  firebaseConfig
+);
 
-export const database = getDatabase(app);
+export const database =
+  getDatabase(app);
+
+export const storage =
+  getStorage(app);

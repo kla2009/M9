@@ -177,6 +177,10 @@ export const CHECK_ITEMS = [
     label: "ปูน"
   },
   {
+    key: "ยา",
+    label: "CyberHaze"
+  },
+  {
     key: "farmCoin",
     label: "เหรียญฟาร์ม"
   }
@@ -195,6 +199,10 @@ export const BLACK_CHECK_ITEMS = [
   {
     key: "cement",
     label: "ปูน"
+  },
+  {
+    key: "ยา",
+    label: "CyberHaze"
   }
 ];
 
@@ -416,7 +424,8 @@ export const saveWeek = async (
 
           Black: {
             redMoney: true,
-            cement: true
+            cement: true,
+            ยา: true
           },
 
           White: {

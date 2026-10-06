@@ -3,7 +3,8 @@ import {
   onValue,
   set,
   push,
-  runTransaction
+  runTransaction,
+  remove
 } from "firebase/database";
 
 import { database } from "../firebase";
@@ -87,7 +88,6 @@ export const addBankTransaction = async ({
   const numericAmount =
     Number(amount);
 
-
   // ตรวจสอบจำนวนเงิน
   if (
     !Number.isFinite(numericAmount) ||
@@ -97,7 +97,6 @@ export const addBankTransaction = async ({
       "จำนวนเงินต้องมากกว่า 0"
     );
   }
-
 
   // ตรวจสอบประเภท
   if (
@@ -109,14 +108,12 @@ export const addBankTransaction = async ({
     );
   }
 
-
   // ตรวจสอบรายละเอียด
   if (!reason?.trim()) {
     throw new Error(
       "กรุณาระบุรายละเอียด"
     );
   }
-
 
   // ตรวจสอบผู้ทำรายการ
   if (!createdBy?.trim()) {
@@ -140,7 +137,6 @@ export const addBankTransaction = async ({
   const transactionId =
     transactionRef.key;
 
-
   if (!transactionId) {
     throw new Error(
       "ไม่สามารถสร้างรหัสรายการได้"
@@ -149,7 +145,7 @@ export const addBankTransaction = async ({
 
 
   // ======================================
-  // แก้ยอดเงินโดยตรง
+  // แก้ยอดเงิน
   // ======================================
 
   const balanceRef = ref(
@@ -158,7 +154,6 @@ export const addBankTransaction = async ({
   );
 
   let errorMessage = "";
-
 
   const result =
     await runTransaction(
@@ -169,24 +164,16 @@ export const addBankTransaction = async ({
           Number(currentBalance) || 0;
 
 
-        // -------------------------------
         // เงินเข้า
-        // -------------------------------
-
         if (type === "income") {
-
           return (
             balance +
             numericAmount
           );
-
         }
 
 
-        // -------------------------------
         // เงินออก
-        // -------------------------------
-
         if (type === "expense") {
 
           if (
@@ -200,16 +187,13 @@ export const addBankTransaction = async ({
               `ต้องการหัก: ${numericAmount.toLocaleString()} บาท`;
 
             return;
-
           }
-
 
           return (
             balance -
             numericAmount
           );
         }
-
 
         return;
       }
@@ -299,7 +283,6 @@ export const updateBankTransaction = async (
     "bank"
   );
 
-
   const result =
     await runTransaction(
       bankRef,
@@ -308,7 +291,6 @@ export const updateBankTransaction = async (
         if (!currentData) {
           return;
         }
-
 
         if (
           !currentData.transactions ||
@@ -325,22 +307,18 @@ export const updateBankTransaction = async (
             transactionId
           ];
 
-
         const oldAmount =
           Number(
             oldTransaction.amount
           ) || 0;
 
-
         const oldType =
           oldTransaction.type;
-
 
         const newAmount =
           data.amount !== undefined
             ? Number(data.amount)
             : oldAmount;
-
 
         const newType =
           data.type ||
@@ -355,7 +333,6 @@ export const updateBankTransaction = async (
         ) {
           return;
         }
-
 
         if (
           newType !== "income" &&
@@ -377,7 +354,6 @@ export const updateBankTransaction = async (
         ) {
           balance -= oldAmount;
         }
-
 
         if (
           oldType === "expense"
@@ -443,100 +419,51 @@ export const updateBankTransaction = async (
     throw new Error(
       "ไม่สามารถแก้ไขรายการได้ หรือเงินในบัญชีไม่เพียงพอ"
     );
-
   }
 };
 
 
 // ========================================
-// ลบรายการ
+// ลบประวัติรายการ
+// ========================================
+// หมายเหตุ:
+// ลบเฉพาะประวัติ
+// ไม่แก้ไขยอดเงินใน BANK
 // ========================================
 
 export const deleteBankTransaction = async (
   transactionId
 ) => {
 
-  const bankRef = ref(
+  if (!transactionId) {
+    throw new Error(
+      "ไม่พบรหัสรายการ"
+    );
+  }
+
+
+  const transactionRef = ref(
     database,
-    "bank"
+    `bank/transactions/${transactionId}`
   );
 
 
-  const result =
-    await runTransaction(
-      bankRef,
-      (currentData) => {
+  try {
 
-        if (!currentData) {
-          return;
-        }
-
-
-        if (
-          !currentData.transactions ||
-          !currentData.transactions[
-            transactionId
-          ]
-        ) {
-          return;
-        }
-
-
-        const transaction =
-          currentData.transactions[
-            transactionId
-          ];
-
-
-        const amount =
-          Number(
-            transaction.amount
-          ) || 0;
-
-
-        let balance =
-          Number(
-            currentData.balance
-          ) || 0;
-
-
-        // ลบเงินเข้า
-        if (
-          transaction.type ===
-          "income"
-        ) {
-          balance -= amount;
-        }
-
-
-        // ลบเงินออก
-        if (
-          transaction.type ===
-          "expense"
-        ) {
-          balance += amount;
-        }
-
-
-        currentData.balance =
-          balance;
-
-
-        delete currentData.transactions[
-          transactionId
-        ];
-
-
-        return currentData;
-      }
+    await remove(
+      transactionRef
     );
 
+  } catch (error) {
 
-  if (!result.committed) {
+    console.error(
+      "DELETE BANK TRANSACTION ERROR:",
+      error
+    );
 
     throw new Error(
-      "ไม่พบรายการที่ต้องการลบ"
+      error?.message ||
+      "ไม่สามารถลบรายการได้"
     );
-
   }
 };

@@ -2037,8 +2037,30 @@ function Admin() {
 
 
                     <p>
-                      เหตุผล: {item.reason}
+                        เหตุผล: {item.reason}
                     </p>
+
+                    {item.image && (
+                      <div className="absence-image-wrapper">
+
+                        <img
+                          src={item.image}
+                          alt={`หลักฐานการลาของ ${item.name}`}
+                          className="absence-image"
+                          onClick={() =>
+                            window.open(
+                              item.image,
+                              '_blank'
+                            )
+                          }
+                        />
+
+                        <span className="absence-image-hint">
+                          คลิกที่รูปเพื่อดูภาพขนาดใหญ่
+                        </span>
+
+                      </div>
+                    )}
 
                   </div>
 
@@ -2126,6 +2148,28 @@ function Admin() {
                       <p>
                         เหตุผล: {item.reason}
                       </p>
+
+                      {item.image && (
+                        <div className="absence-image-wrapper">
+
+                          <img
+                            src={item.image}
+                            alt={`หลักฐานการลาของ ${item.name}`}
+                            className="absence-image"
+                            onClick={() =>
+                              window.open(
+                                item.image,
+                                '_blank'
+                              )
+                            }
+                          />
+
+                          <span className="absence-image-hint">
+                            คลิกที่รูปเพื่อดูภาพขนาดใหญ่
+                          </span>
+
+                        </div>
+                      )}
 
                     </div>
 

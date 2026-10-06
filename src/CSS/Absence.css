@@ -1,192 +1,334 @@
+/* ========================================
+   ABSENCE PAGE
+======================================== */
+
 .absence-page {
   min-height: 100vh;
-  padding: 120px 20px 60px;
-
   background:
     radial-gradient(
       circle at top right,
-      rgba(255, 0, 0, 0.12),
+      rgba(229, 9, 20, 0.10),
       transparent 35%
     ),
     #050505;
-
   color: #fff;
+  padding: 30px 14px;
 }
 
+
+/* ========================================
+   CONTAINER
+======================================== */
 
 .absence-container {
-  width: 100%;
-  max-width: 850px;
-  margin: auto;
+  max-width: 1060px;
+  margin: 0 auto;
+  padding: 38px;
+  background: rgba(18, 18, 18, 0.96);
+  border: 1px solid #292929;
+  border-radius: 28px;
+  box-shadow:
+    0 0 40px rgba(0, 0, 0, 0.5),
+    0 0 35px rgba(229, 9, 20, 0.04);
 }
 
+
+/* ========================================
+   HEADER
+======================================== */
 
 .absence-header {
   margin-bottom: 35px;
 }
 
-
 .absence-header span {
-  color: #ff2b2b;
+  display: inline-block;
+  color: #e50914;
   font-size: 12px;
-  letter-spacing: 3px;
-  font-weight: 700;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
 }
-
 
 .absence-header h1 {
-  margin: 10px 0;
-
-  font-size: 42px;
-  font-weight: 800;
-}
-
-
-.absence-header p {
-  color: #888;
   margin: 0;
-}
-
-
-/* FORM */
-
-.absence-form {
-  padding: 30px;
-
-  background: rgba(20, 20, 20, 0.8);
-
-  border: 1px solid #242424;
-  border-radius: 24px;
-}
-
-
-.absence-group {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-
-  margin-bottom: 22px;
-}
-
-
-.absence-group label {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 38px;
+  font-weight: 900;
+  color: #fff;
   letter-spacing: 1px;
 }
 
-
-.absence-group label span {
-  color: #666;
-  font-weight: 400;
-}
-
-
-.absence-group input,
-.absence-group textarea {
-
-  width: 100%;
-  box-sizing: border-box;
-
-  padding: 14px 16px;
-
-  border-radius: 12px;
-  border: 1px solid #2a2a2a;
-
-  background: #0d0d0d;
-  color: white;
-
-  outline: none;
-
+.absence-header p {
+  margin: 8px 0 0;
+  color: #777;
   font-size: 14px;
 }
 
 
-.absence-group input:focus,
-.absence-group textarea:focus {
+/* ========================================
+   FORM
+======================================== */
 
-  border-color: #ff2b2b;
-
-  box-shadow:
-    0 0 0 2px rgba(255, 43, 43, 0.1);
+.absence-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 
+/* ========================================
+   GROUP
+======================================== */
+
+.absence-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.absence-group label {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.absence-group label span {
+  color: #777;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+
+/* ========================================
+   ROW
+======================================== */
+
+.absence-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+
+/* ========================================
+   INPUT / TEXTAREA
+======================================== */
+
+.absence-group input,
 .absence-group textarea {
-  min-height: 130px;
-  resize: vertical;
+  width: 100%;
+  box-sizing: border-box;
+
+  background: #050505;
+  color: #fff;
+
+  border: 1px solid #303030;
+  border-radius: 16px;
+
+  padding: 17px 20px;
+
+  font-size: 16px;
+  font-family: inherit;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* TEXT INPUT */
+
+.absence-group input[type="text"] {
+  height: 58px;
 }
 
 
 /* DATE / TIME */
 
-.absence-row {
-
-  display: grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap: 20px;
+.absence-group input[type="date"],
+.absence-group input[type="time"] {
+  height: 58px;
+  color-scheme: dark;
 }
 
 
-/* FILE */
+/* TEXTAREA */
+
+.absence-group textarea {
+  min-height: 160px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+
+/* PLACEHOLDER */
+
+.absence-group input::placeholder,
+.absence-group textarea::placeholder {
+  color: #666;
+}
+
+
+/* ========================================
+   FOCUS
+======================================== */
+
+.absence-group input:focus,
+.absence-group textarea:focus {
+  border-color: #e50914;
+  background: #080808;
+
+  box-shadow:
+    0 0 0 3px rgba(229, 9, 20, 0.12),
+    0 0 20px rgba(229, 9, 20, 0.08);
+}
+
+
+/* ========================================
+   DATE / TIME ICON
+======================================== */
+
+.absence-group input[type="date"]::-webkit-calendar-picker-indicator,
+.absence-group input[type="time"]::-webkit-calendar-picker-indicator {
+  filter:
+    invert(18%)
+    sepia(95%)
+    saturate(6000%)
+    hue-rotate(350deg)
+    brightness(95%);
+  cursor: pointer;
+}
+
+
+/* ========================================
+   FILE INPUT
+======================================== */
 
 .absence-group input[type="file"] {
-  padding: 12px;
+  height: auto;
+  padding: 12px 14px;
+  cursor: pointer;
+}
+
+.absence-group input[type="file"]::file-selector-button {
+  background: #e50914;
+  color: #fff;
+
+  border: none;
+  border-radius: 9px;
+
+  padding: 10px 16px;
+  margin-right: 12px;
+
+  font-weight: 800;
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.absence-group input[type="file"]::file-selector-button:hover {
+  background: #ff1b26;
 }
 
 
-/* BUTTON */
+/* ========================================
+   SUBMIT BUTTON
+======================================== */
 
 .absence-submit {
-
   width: 100%;
+  min-height: 58px;
 
-  padding: 15px;
+  margin-top: 5px;
+
+  background: linear-gradient(
+    135deg,
+    #e50914,
+    #b8000b
+  );
+
+  color: #fff;
 
   border: none;
-  border-radius: 14px;
+  border-radius: 16px;
 
-  background: #e50914;
-  color: white;
-
-  font-size: 15px;
-  font-weight: 800;
+  font-size: 17px;
+  font-weight: 900;
 
   cursor: pointer;
 
-  transition: 0.2s;
+  box-shadow:
+    0 8px 25px rgba(229, 9, 20, 0.20);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
 
-.absence-submit:hover {
-  background: #ff1f2b;
+/* HOVER */
 
-  transform: translateY(-1px);
+.absence-submit:hover:not(:disabled) {
+  background: linear-gradient(
+    135deg,
+    #ff1823,
+    #d0000c
+  );
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(229, 9, 20, 0.32);
 }
 
 
-/* MOBILE */
+/* CLICK */
 
-@media (max-width: 650px) {
+.absence-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+
+/* LOADING / DISABLED */
+
+.absence-submit:disabled {
+  background: #3a3a3a;
+  color: #777;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
 
   .absence-page {
-    padding-top: 100px;
+    padding: 15px 10px;
+  }
+
+  .absence-container {
+    padding: 24px 18px;
+    border-radius: 20px;
   }
 
   .absence-header h1 {
-    font-size: 32px;
-  }
-
-  .absence-form {
-    padding: 20px;
+    font-size: 30px;
   }
 
   .absence-row {
     grid-template-columns: 1fr;
-    gap: 0;
+    gap: 24px;
+  }
+
+  .absence-form {
+    gap: 20px;
   }
 
 }

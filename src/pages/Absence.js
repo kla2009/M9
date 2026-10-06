@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import '../CSS/Absence.css';
 
@@ -15,7 +16,10 @@ function Absence() {
 
   const [reason, setReason] = useState('');
   const [image, setImage] = useState(null);
+
+  // สถานะการอัปโหลด
   const [loading, setLoading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState(0);
 
 
   const handleSubmit = async (e) => {
@@ -23,19 +27,29 @@ function Absence() {
     e.preventDefault();
 
 
-    // บังคับเฉพาะข้อมูลหลัก
+    // ========================================
+    // ตรวจสอบข้อมูล
+    // ========================================
+
     if (
       !name ||
       !startDate ||
       !endDate ||
       !reason
     ) {
-      alert('กรุณากรอกข้อมูลที่จำเป็นให้ครบ');
+
+      alert(
+        'กรุณากรอกข้อมูลที่จำเป็นให้ครบ'
+      );
+
       return;
     }
 
 
+    // ========================================
     // ตรวจสอบวันที่
+    // ========================================
+
     if (endDate < startDate) {
 
       alert(
@@ -46,7 +60,10 @@ function Absence() {
     }
 
 
-    // ถ้ากรอกเวลา ต้องกรอกให้ครบทั้งสองช่อง
+    // ========================================
+    // ตรวจสอบเวลา
+    // ========================================
+
     if (
       (startTime && !endTime) ||
       (!startTime && endTime)
@@ -60,7 +77,10 @@ function Absence() {
     }
 
 
-    // ถ้าวันเดียวกันและกรอกเวลา
+    // ========================================
+    // วันเดียวกัน + เวลา
+    // ========================================
+
     if (
       startDate === endDate &&
       startTime &&
@@ -79,26 +99,36 @@ function Absence() {
     try {
 
       setLoading(true);
+      setUploadProgress(0);
 
+
+      // ========================================
+      // ข้อมูลการลา
+      // ========================================
 
       const absenceData = {
 
-        name: name,
+        name:
+          name,
 
-        startDate: startDate,
+        startDate:
+          startDate,
 
-        endDate: endDate,
+        endDate:
+          endDate,
 
-        // ถ้าไม่กรอกจะเป็นค่าว่าง
-        startTime: startTime || '',
+        startTime:
+          startTime || '',
 
-        endTime: endTime || '',
+        endTime:
+          endTime || '',
 
-        reason: reason,
+        reason:
+          reason,
 
-        image: image
-          ? image.name
-          : '',
+        // ส่งไฟล์จริง
+        imageFile:
+          image || null,
 
         createdAt:
           new Date().toISOString()
@@ -106,9 +136,27 @@ function Absence() {
       };
 
 
+      // ========================================
+      // บันทึกข้อมูล + Upload รูป
+      // ========================================
+
       await addAbsence(
-        absenceData
+        absenceData,
+        (progress) => {
+
+          setUploadProgress(
+            progress
+          );
+
+        }
       );
+
+
+      // ========================================
+      // สำเร็จ
+      // ========================================
+
+      setUploadProgress(100);
 
 
       alert(
@@ -116,7 +164,9 @@ function Absence() {
       );
 
 
+      // ========================================
       // ล้างข้อมูล
+      // ========================================
 
       setName('');
       setStartDate('');
@@ -127,6 +177,14 @@ function Absence() {
       setImage(null);
 
 
+      // รอให้เห็น 100%
+      setTimeout(() => {
+
+        setUploadProgress(0);
+
+      }, 500);
+
+
     } catch (error) {
 
       console.error(
@@ -134,9 +192,14 @@ function Absence() {
         error
       );
 
+
       alert(
+        error?.message ||
         'ไม่สามารถบันทึกข้อมูลได้'
       );
+
+
+      setUploadProgress(0);
 
     } finally {
 
@@ -153,6 +216,10 @@ function Absence() {
 
       <div className="absence-container">
 
+
+        {/* ========================================
+            HEADER
+        ======================================== */}
 
         <div className="absence-header">
 
@@ -171,13 +238,19 @@ function Absence() {
         </div>
 
 
+        {/* ========================================
+            FORM
+        ======================================== */}
+
         <form
           className="absence-form"
           onSubmit={handleSubmit}
         >
 
 
-          {/* ชื่อ */}
+          {/* ========================================
+              ชื่อ
+          ======================================== */}
 
           <div className="absence-group">
 
@@ -190,14 +263,18 @@ function Absence() {
               placeholder="กรอกชื่อ"
               value={name}
               onChange={(e) =>
-                setName(e.target.value)
+                setName(
+                  e.target.value
+                )
               }
             />
 
           </div>
 
 
-          {/* วันที่ */}
+          {/* ========================================
+              วันที่
+          ======================================== */}
 
           <div className="absence-row">
 
@@ -242,15 +319,23 @@ function Absence() {
           </div>
 
 
-          {/* เวลา */}
+          {/* ========================================
+              เวลา
+          ======================================== */}
 
           <div className="absence-row">
 
             <div className="absence-group">
 
               <label>
+
                 เวลาเริ่ม
-                <span> (ไม่บังคับ)</span>
+
+                <span>
+                  {' '}
+                  (ไม่บังคับ)
+                </span>
+
               </label>
 
               <input
@@ -269,8 +354,14 @@ function Absence() {
             <div className="absence-group">
 
               <label>
+
                 เวลาสิ้นสุด
-                <span> (ไม่บังคับ)</span>
+
+                <span>
+                  {' '}
+                  (ไม่บังคับ)
+                </span>
+
               </label>
 
               <input
@@ -288,7 +379,9 @@ function Absence() {
           </div>
 
 
-          {/* เหตุผล */}
+          {/* ========================================
+              เหตุผล
+          ======================================== */}
 
           <div className="absence-group">
 
@@ -309,29 +402,140 @@ function Absence() {
           </div>
 
 
-          {/* รูปภาพ */}
+          {/* ========================================
+              รูปภาพ
+          ======================================== */}
 
           <div className="absence-group">
 
             <label>
+
               รูปภาพประกอบ
-              <span> (ถ้ามี)</span>
+
+              <span>
+                {' '}
+                (ถ้ามี)
+              </span>
+
             </label>
+
 
             <input
               type="file"
               accept="image/*"
+              disabled={loading}
               onChange={(e) =>
                 setImage(
-                  e.target.files[0] || null
+                  e.target.files[0] ||
+                  null
                 )
               }
             />
 
+
+            {image && (
+
+              <small
+                style={{
+                  color: '#888',
+                  marginTop: '4px'
+                }}
+              >
+
+                เลือกไฟล์:
+                {' '}
+                {image.name}
+
+              </small>
+
+            )}
+
           </div>
 
 
-          {/* ปุ่ม */}
+          {/* ========================================
+              PROGRESS
+          ======================================== */}
+
+          {loading && (
+
+            <div
+              style={{
+                marginTop: '10px',
+                marginBottom: '10px'
+              }}
+            >
+
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginBottom: '6px'
+                }}
+              >
+
+                <span
+                  style={{
+                    color: '#aaa',
+                    fontSize: '13px'
+                  }}
+                >
+
+                  {uploadProgress < 10
+                    ? 'กำลังเตรียมรูป...'
+                    : uploadProgress < 95
+                      ? 'กำลังอัปโหลดรูป...'
+                      : 'กำลังบันทึกข้อมูล...'}
+
+                </span>
+
+
+                <span
+                  style={{
+                    color: '#fff',
+                    fontSize: '13px',
+                    fontWeight: '600'
+                  }}
+                >
+
+                  {uploadProgress}%
+
+                </span>
+
+              </div>
+
+
+              <div
+                style={{
+                  width: '100%',
+                  height: '6px',
+                  background: '#222',
+                  borderRadius: '10px',
+                  overflow: 'hidden'
+                }}
+              >
+
+                <div
+                  style={{
+                    width: `${uploadProgress}%`,
+                    height: '100%',
+                    background: '#e50914',
+                    borderRadius: '10px',
+                    transition: 'width 0.2s ease'
+                  }}
+                />
+
+              </div>
+
+            </div>
+
+          )}
+
+
+          {/* ========================================
+              ปุ่ม
+          ======================================== */}
 
           <button
             type="submit"
@@ -340,7 +544,7 @@ function Absence() {
           >
 
             {loading
-              ? 'กำลังบันทึก...'
+              ? `กำลังอัปโหลด ${uploadProgress}%...`
               : 'แจ้งลา'}
 
           </button>
@@ -353,6 +557,8 @@ function Absence() {
     </div>
 
   );
+
 }
 
 export default Absence;
+
