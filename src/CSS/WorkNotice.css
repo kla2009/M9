@@ -1,0 +1,137 @@
+/* =========================
+   WORK NOTICE
+========================= */
+
+.work-notice {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  margin-bottom: 14px;
+
+  padding: 13px 18px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 48, 48, 0.12),
+      rgba(255, 48, 48, 0.03)
+    );
+
+  border: 1px solid rgba(255, 48, 48, 0.35);
+
+  border-radius: 13px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 25px rgba(255, 48, 48, 0.06);
+}
+
+
+/* เส้นแดงด้านซ้าย */
+
+.work-notice::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 3px;
+  height: 100%;
+
+  background: #ff3030;
+
+  box-shadow:
+    0 0 15px rgba(255, 48, 48, 0.7);
+}
+
+
+/* ไอคอน */
+
+.notice-icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #ff3030;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: 900;
+
+  box-shadow:
+    0 0 15px rgba(255, 48, 48, 0.25);
+}
+
+
+/* หัวข้อ */
+
+.work-notice strong {
+  display: block;
+
+  color: #ff3030;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 2px;
+}
+
+
+/* ข้อความ */
+
+.work-notice p {
+  margin: 0;
+
+  color: #aaa;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .work-notice {
+    padding: 11px 14px;
+    gap: 10px;
+  }
+
+  .notice-icon {
+    width: 24px;
+    height: 24px;
+    font-size: 13px;
+  }
+
+  .work-notice strong {
+    font-size: 10px;
+  }
+
+  .work-notice p {
+    font-size: 10px;
+  }
+
+}

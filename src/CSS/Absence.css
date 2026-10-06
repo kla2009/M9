@@ -1,0 +1,192 @@
+.absence-page {
+  min-height: 100vh;
+  padding: 120px 20px 60px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 0, 0, 0.12),
+      transparent 35%
+    ),
+    #050505;
+
+  color: #fff;
+}
+
+
+.absence-container {
+  width: 100%;
+  max-width: 850px;
+  margin: auto;
+}
+
+
+.absence-header {
+  margin-bottom: 35px;
+}
+
+
+.absence-header span {
+  color: #ff2b2b;
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+
+.absence-header h1 {
+  margin: 10px 0;
+
+  font-size: 42px;
+  font-weight: 800;
+}
+
+
+.absence-header p {
+  color: #888;
+  margin: 0;
+}
+
+
+/* FORM */
+
+.absence-form {
+  padding: 30px;
+
+  background: rgba(20, 20, 20, 0.8);
+
+  border: 1px solid #242424;
+  border-radius: 24px;
+}
+
+
+.absence-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  margin-bottom: 22px;
+}
+
+
+.absence-group label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+
+.absence-group label span {
+  color: #666;
+  font-weight: 400;
+}
+
+
+.absence-group input,
+.absence-group textarea {
+
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px 16px;
+
+  border-radius: 12px;
+  border: 1px solid #2a2a2a;
+
+  background: #0d0d0d;
+  color: white;
+
+  outline: none;
+
+  font-size: 14px;
+}
+
+
+.absence-group input:focus,
+.absence-group textarea:focus {
+
+  border-color: #ff2b2b;
+
+  box-shadow:
+    0 0 0 2px rgba(255, 43, 43, 0.1);
+}
+
+
+.absence-group textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+
+/* DATE / TIME */
+
+.absence-row {
+
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 20px;
+}
+
+
+/* FILE */
+
+.absence-group input[type="file"] {
+  padding: 12px;
+}
+
+
+/* BUTTON */
+
+.absence-submit {
+
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #e50914;
+  color: white;
+
+  font-size: 15px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.absence-submit:hover {
+  background: #ff1f2b;
+
+  transform: translateY(-1px);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+
+  .absence-page {
+    padding-top: 100px;
+  }
+
+  .absence-header h1 {
+    font-size: 32px;
+  }
+
+  .absence-form {
+    padding: 20px;
+  }
+
+  .absence-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+}

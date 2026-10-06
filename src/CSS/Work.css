@@ -1,0 +1,513 @@
+/* =========================
+   WORK PAGE
+========================= */
+
+.work-page {
+  width: 90%;
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  padding: 45px 0 70px;
+
+  color: white;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.work-header {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 28px 35px;
+
+  margin-bottom: 20px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 48, 48, 0.12),
+      transparent 70%
+    ),
+    #111;
+
+  border: 1px solid #292929;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+}
+
+.work-header::after {
+  content: "";
+
+  position: absolute;
+
+  right: -100px;
+  top: -150px;
+
+  width: 350px;
+  height: 350px;
+
+  background: #ff3030;
+
+  border-radius: 50%;
+
+  filter: blur(120px);
+
+  opacity: 0.08;
+}
+
+
+/* =========================
+   ICON
+========================= */
+
+.work-icon {
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #333;
+
+  border-radius: 18px;
+
+  background: #181818;
+
+  font-size: 32px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   HEADER TEXT
+========================= */
+
+.work-header p {
+  margin: 0 0 5px;
+
+  color: #ff3030;
+
+  font-size: 10px;
+
+  font-weight: bold;
+
+  letter-spacing: 3px;
+}
+
+.work-header h1 {
+  margin: 0;
+
+  font-size: 38px;
+
+  letter-spacing: -2px;
+
+  font-weight: 800;
+}
+
+.work-header span {
+  display: block;
+
+  margin-top: 7px;
+
+  color: #666;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   MOTIVATION
+========================= */
+
+.work-motivation {
+  margin-left: auto;
+
+  color: #ff3030;
+
+  font-size: 24px;
+
+  font-weight: 800;
+
+  font-style: italic;
+
+  transform: rotate(-5deg);
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   SCHEDULE
+========================= */
+
+.schedule {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 8px;
+}
+
+
+/* =========================
+   DAY ROW
+========================= */
+
+.day-row {
+  display: grid;
+
+  grid-template-columns: 170px 1fr;
+
+  min-height: 105px;
+
+  gap: 8px;
+}
+
+
+/* =========================
+   DAY
+========================= */
+
+.day {
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  padding: 20px;
+
+  background: #111;
+
+  border: 1px solid #292929;
+
+  border-radius: 16px;
+}
+
+.day h2 {
+  margin: 0;
+
+  font-size: 22px;
+
+  font-weight: 800;
+}
+
+.day span {
+  margin-top: 4px;
+
+  color: #666;
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   TASKS
+========================= */
+
+.tasks {
+  display: flex;
+
+  align-items: stretch;
+
+  gap: 8px;
+
+  min-width: 0;
+}
+
+
+/* =========================
+   TASK
+========================= */
+
+.task {
+  flex: 1;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 16px;
+
+  padding: 18px 22px;
+
+  border-radius: 16px;
+
+  border: 1px solid transparent;
+
+  transition: 0.25s ease;
+}
+
+.task:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   TASK ICON
+========================= */
+
+.task-icon {
+  font-size: 30px;
+
+  width: 45px;
+
+  text-align: center;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================
+   TASK TEXT
+========================= */
+
+.task h3 {
+  margin: 0 0 5px;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+.task p {
+  margin: 0;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   ROBBERY
+========================= */
+
+.robbery {
+  background: rgba(255, 48, 48, 0.10);
+
+  border-color: rgba(255, 48, 48, 0.18);
+
+  color: #ff7070;
+}
+
+
+/* =========================
+   DRUGS
+========================= */
+
+.drugs {
+  background: rgba(50, 200, 150, 0.08);
+
+  border-color: rgba(50, 200, 150, 0.15);
+
+  color: #66d6b0;
+}
+
+
+/* =========================
+   TRAINING
+========================= */
+
+.training {
+  background: rgba(130, 90, 255, 0.10);
+
+  border-color: rgba(130, 90, 255, 0.18);
+
+  color: #a88cff;
+}
+
+
+/* =========================
+   REST
+========================= */
+
+.rest {
+  background: rgba(80, 140, 255, 0.08);
+
+  border-color: rgba(80, 140, 255, 0.15);
+
+  color: #80adff;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.work-footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 30px;
+
+  margin-top: 15px;
+
+  padding: 15px 20px;
+
+  background: #111;
+
+  border: 1px solid #292929;
+
+  border-radius: 14px;
+
+  color: #777;
+
+  font-size: 11px;
+}
+
+.work-footer div {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  display: inline-block;
+}
+
+.robbery-dot {
+  background: #ff3030;
+}
+
+.drugs-dot {
+  background: #55cba5;
+}
+
+.training-dot {
+  background: #9674ff;
+}
+
+.rest-dot {
+  background: #6fa2ff;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .work-page {
+    width: 88%;
+  }
+
+  .work-header h1 {
+    font-size: 30px;
+  }
+
+  .day-row {
+    grid-template-columns: 130px 1fr;
+  }
+
+  .day h2 {
+    font-size: 18px;
+  }
+
+  .task {
+    padding: 15px;
+  }
+
+  .task h3 {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+
+  .work-page {
+    width: 90%;
+    padding: 30px 0 50px;
+  }
+
+  .work-header {
+    padding: 22px;
+
+    gap: 15px;
+  }
+
+  .work-icon {
+    width: 50px;
+    height: 50px;
+
+    font-size: 24px;
+  }
+
+  .work-header h1 {
+    font-size: 23px;
+  }
+
+  .work-header span {
+    font-size: 10px;
+  }
+
+  .work-motivation {
+    display: none;
+  }
+
+  .day-row {
+    grid-template-columns: 1fr;
+
+    gap: 5px;
+  }
+
+  .day {
+    padding: 12px 16px;
+
+    flex-direction: row;
+
+    align-items: center;
+
+    gap: 10px;
+  }
+
+  .day h2 {
+    font-size: 16px;
+  }
+
+  .day span {
+    margin: 0;
+  }
+
+  .tasks {
+    flex-direction: column;
+  }
+
+  .task {
+    min-height: 65px;
+  }
+
+  .work-footer {
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+
+}

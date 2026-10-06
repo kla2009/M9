@@ -1,0 +1,256 @@
+/* =========================
+   BANK PAGE
+========================= */
+
+.bank-page {
+  min-height: 100vh;
+  background: #080808;
+  color: #fff;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.bank-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.bank-header {
+  margin-bottom: 30px;
+}
+
+.bank-label {
+  color: #e50914;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.bank-header h1 {
+  margin: 6px 0 0;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.bank-header p {
+  margin: 8px 0 0;
+  color: #777;
+  font-size: 13px;
+}
+
+
+/* =========================
+   BALANCE
+========================= */
+
+.bank-balance-card {
+  background: linear-gradient(
+    135deg,
+    #151515,
+    #0d0d0d
+  );
+
+  border: 1px solid #252525;
+  border-radius: 18px;
+
+  padding: 30px;
+  margin-bottom: 25px;
+
+  box-sizing: border-box;
+}
+
+.balance-label {
+  color: #777;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.balance-amount {
+  margin-top: 10px;
+
+  font-size: 42px;
+  font-weight: 900;
+
+  color: #fff;
+}
+
+.balance-description {
+  margin-top: 8px;
+
+  color: #555;
+  font-size: 11px;
+}
+
+
+/* =========================
+   TRANSACTIONS
+========================= */
+
+.bank-transactions {
+  width: 100%;
+}
+
+.transactions-header {
+  margin-bottom: 15px;
+}
+
+.transactions-label {
+  color: #e50914;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.transactions-header h2 {
+  margin: 5px 0 0;
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty-transactions {
+  padding: 40px 20px;
+
+  text-align: center;
+
+  background: #101010;
+  border: 1px solid #222;
+
+  border-radius: 14px;
+
+  color: #666;
+  font-size: 13px;
+}
+
+
+/* =========================
+   TRANSACTION LIST
+========================= */
+
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.transaction-card {
+  background: #101010;
+
+  border: 1px solid #222;
+  border-radius: 14px;
+
+  padding: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 15px;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+.transaction-card:hover {
+  border-color: #333;
+  background: #121212;
+}
+
+
+/* =========================
+   TRANSACTION INFO
+========================= */
+
+.transaction-info {
+  min-width: 0;
+}
+
+.transaction-reason {
+  font-size: 14px;
+  font-weight: 800;
+
+  word-break: break-word;
+}
+
+.transaction-user {
+  margin-top: 6px;
+
+  color: #666;
+  font-size: 11px;
+}
+
+.transaction-date {
+  margin-top: 3px;
+
+  color: #555;
+  font-size: 10px;
+}
+
+
+/* =========================
+   AMOUNT
+========================= */
+
+.transaction-amount {
+  font-size: 16px;
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+.transaction-amount.income {
+  color: #35c759;
+}
+
+.transaction-amount.expense {
+  color: #ff453a;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .bank-page {
+    padding: 20px 14px;
+  }
+
+  .bank-header h1 {
+    font-size: 28px;
+  }
+
+  .bank-balance-card {
+    padding: 24px 20px;
+  }
+
+  .balance-amount {
+    font-size: 32px;
+  }
+
+  .transaction-card {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .transaction-amount {
+    font-size: 15px;
+  }
+
+}

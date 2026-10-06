@@ -1,0 +1,516 @@
+/* =========================
+   ADMIN BANK
+========================= */
+
+.admin-bank-page {
+  min-height: 100vh;
+  background: #080808;
+  color: #fff;
+  padding: 30px 20px;
+  box-sizing: border-box;
+}
+
+.admin-bank-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.admin-bank-header {
+  margin-bottom: 30px;
+}
+
+.admin-bank-label {
+  color: #e50914;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.admin-bank-header h1 {
+  margin: 6px 0 0;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.admin-bank-header p {
+  margin: 8px 0 0;
+  color: #666;
+  font-size: 13px;
+}
+
+
+/* =========================
+   BALANCE
+========================= */
+
+.admin-bank-balance {
+  background:
+    linear-gradient(
+      135deg,
+      #171717,
+      #0d0d0d
+    );
+
+  border: 1px solid #292929;
+  border-radius: 18px;
+
+  padding: 30px;
+  margin-bottom: 25px;
+
+  box-sizing: border-box;
+}
+
+.admin-bank-balance-label {
+  color: #777;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.admin-bank-balance-value {
+  margin-top: 8px;
+
+  font-size: 42px;
+  font-weight: 900;
+
+  color: #fff;
+}
+
+
+/* =========================
+   SECTION
+========================= */
+
+.admin-bank-section {
+  margin-bottom: 30px;
+}
+
+.admin-bank-section-title {
+  margin-bottom: 15px;
+}
+
+.admin-bank-section-title span {
+  color: #e50914;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+.admin-bank-section-title h2 {
+  margin: 5px 0 0;
+
+  font-size: 22px;
+  font-weight: 900;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.admin-bank-form {
+  background: #101010;
+
+  border: 1px solid #222;
+  border-radius: 16px;
+
+  padding: 22px;
+
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   TYPE
+========================= */
+
+.admin-bank-type {
+  display: flex;
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.admin-bank-type button {
+  min-height: 44px;
+
+  padding: 0 18px;
+
+  border: 1px solid #292929;
+  border-radius: 10px;
+
+  background: #151515;
+  color: #666;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.admin-bank-type button:hover {
+  border-color: #444;
+  color: #fff;
+}
+
+.admin-bank-type button.active.income {
+  background: rgba(53, 199, 89, 0.12);
+  border-color: #35c759;
+  color: #35c759;
+}
+
+.admin-bank-type button.active.expense {
+  background: rgba(255, 69, 58, 0.12);
+  border-color: #ff453a;
+  color: #ff453a;
+}
+
+
+/* =========================
+   FIELD
+========================= */
+
+.admin-bank-field {
+  margin-bottom: 16px;
+}
+
+.admin-bank-field label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #999;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.admin-bank-field input {
+  width: 100%;
+
+  height: 46px;
+
+  padding: 0 14px;
+
+  background: #080808;
+
+  border: 1px solid #292929;
+  border-radius: 10px;
+
+  color: #fff;
+
+  font-size: 13px;
+
+  outline: none;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+.admin-bank-field input::placeholder {
+  color: #444;
+}
+
+.admin-bank-field input:focus {
+  border-color: #e50914;
+}
+
+.admin-bank-field input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+.admin-bank-submit {
+  width: 100%;
+  min-height: 48px;
+
+  margin-top: 5px;
+
+  border: 0;
+  border-radius: 10px;
+
+  color: #fff;
+
+  font-size: 12px;
+  font-weight: 900;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.admin-bank-submit.income {
+  background: #16833a;
+}
+
+.admin-bank-submit.income:hover {
+  background: #1ca347;
+}
+
+.admin-bank-submit.expense {
+  background: #b51f1a;
+}
+
+.admin-bank-submit.expense:hover {
+  background: #d32620;
+}
+
+.admin-bank-submit:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+
+/* =========================
+   TRANSACTION LIST
+========================= */
+
+.admin-bank-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-bank-transaction {
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 20px;
+
+  padding: 18px;
+
+  background: #101010;
+
+  border: 1px solid #222;
+  border-radius: 14px;
+
+  box-sizing: border-box;
+
+  transition: 0.2s;
+}
+
+.admin-bank-transaction:hover {
+  background: #121212;
+  border-color: #333;
+}
+
+
+/* =========================
+   TRANSACTION INFO
+========================= */
+
+.admin-bank-transaction-info {
+  min-width: 0;
+}
+
+.admin-bank-transaction-reason {
+  font-size: 14px;
+  font-weight: 800;
+
+  word-break: break-word;
+}
+
+.admin-bank-transaction-meta {
+  margin-top: 5px;
+
+  color: #666;
+
+  font-size: 10px;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.admin-bank-transaction-right {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+  flex-shrink: 0;
+}
+
+.admin-bank-transaction-amount {
+  font-size: 15px;
+  font-weight: 900;
+
+  white-space: nowrap;
+}
+
+.admin-bank-transaction-amount.income {
+  color: #35c759;
+}
+
+.admin-bank-transaction-amount.expense {
+  color: #ff453a;
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+.admin-bank-delete {
+  min-height: 36px;
+
+  padding: 0 12px;
+
+  border: 1px solid #3a2020;
+  border-radius: 8px;
+
+  background: #160909;
+  color: #ff453a;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.admin-bank-delete:hover {
+  background: #ff453a;
+  border-color: #ff453a;
+  color: #fff;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.admin-bank-empty {
+  padding: 40px 20px;
+
+  text-align: center;
+
+  background: #101010;
+
+  border: 1px solid #222;
+  border-radius: 14px;
+
+  color: #666;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   ACCESS DENIED
+========================= */
+
+.admin-bank-denied {
+  min-height: 70vh;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+}
+
+.admin-bank-denied-code {
+  color: #e50914;
+
+  font-size: 70px;
+  font-weight: 900;
+
+  line-height: 1;
+}
+
+.admin-bank-denied h1 {
+  margin: 15px 0 5px;
+
+  font-size: 25px;
+  font-weight: 900;
+}
+
+.admin-bank-denied p {
+  margin: 0;
+
+  color: #666;
+
+  font-size: 13px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  .admin-bank-page {
+    padding: 20px 14px;
+  }
+
+  .admin-bank-header h1 {
+    font-size: 26px;
+  }
+
+  .admin-bank-balance {
+    padding: 24px 20px;
+  }
+
+  .admin-bank-balance-value {
+    font-size: 32px;
+  }
+
+  .admin-bank-form {
+    padding: 18px;
+  }
+
+  .admin-bank-type {
+    flex-direction: column;
+  }
+
+  .admin-bank-type button {
+    width: 100%;
+  }
+
+  .admin-bank-transaction {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+  .admin-bank-transaction-right {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .admin-bank-transaction-amount {
+    font-size: 14px;
+  }
+
+}

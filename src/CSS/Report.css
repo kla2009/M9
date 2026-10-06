@@ -1,0 +1,235 @@
+.report-page {
+  min-height: 100vh;
+  padding: 120px 20px 70px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(255, 0, 0, 0.12),
+      transparent 35%
+    ),
+    #050505;
+  color: #fff;
+  font-family:
+    "Noto Sans Thai",
+    "Segoe UI",
+    Tahoma,
+    Arial,
+    sans-serif;
+
+  /* ป้องกันเนื้อหาล้นหน้าจอ */
+  overflow-x: hidden;
+}
+
+.report-container {
+  max-width: 700px;
+  margin: 0 auto;
+
+  /* ป้องกันข้อความยาวทะลุ */
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.report-header {
+  margin-bottom: 35px;
+}
+
+.report-header span {
+  color: #ff2b2b;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.report-header h1 {
+  margin: 10px 0 8px;
+  font-size: 42px;
+  font-weight: 800;
+
+  /* ป้องกันหัวข้อยาวเกิน */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.report-header p {
+  margin: 0;
+  color: #888;
+  font-size: 14px;
+  line-height: 1.7;
+
+  /* ป้องกันข้อความยาว */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.report-form {
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+
+  padding: 28px;
+  background: rgba(18, 18, 18, 0.9);
+  border: 1px solid #252525;
+  border-radius: 22px;
+
+  /* ป้องกันเนื้อหาทะลุกรอบ */
+  overflow: hidden;
+}
+
+.report-group {
+  margin-bottom: 22px;
+
+  /* สำคัญ */
+  min-width: 0;
+}
+
+.report-group label {
+  display: block;
+  margin-bottom: 9px;
+  color: #ddd;
+  font-size: 13px;
+  font-weight: 700;
+
+  /* ป้องกัน label ยาว */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.report-group input,
+.report-group select,
+.report-group textarea {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  padding: 14px 15px;
+  border: 1px solid #303030;
+  border-radius: 12px;
+  outline: none;
+  background: #0d0d0d;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  transition: 0.2s ease;
+}
+
+.report-group input:focus,
+.report-group select:focus,
+.report-group textarea:focus {
+  border-color: #e50914;
+  box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.1);
+}
+
+.report-group textarea {
+  min-height: 150px;
+  resize: vertical;
+
+  /* ป้องกันข้อความยาวทะลุ */
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.report-group select {
+  cursor: pointer;
+}
+
+.report-submit {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 15px;
+  border: none;
+  border-radius: 12px;
+  background: #e50914;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.report-submit:hover {
+  background: #ff1a25;
+  transform: translateY(-1px);
+}
+
+.report-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =====================================================
+   REPORT LIST / REPORT CARD
+   ป้องกันข้อความรายงานยาวทะลุกรอบ
+   ===================================================== */
+
+.report-item,
+.report-card,
+.report-list,
+.report-content {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ตัว Card */
+.report-item,
+.report-card {
+  overflow: hidden;
+}
+
+/* ข้อความภายใน Card */
+.report-item p,
+.report-card p,
+.report-content p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+}
+
+/* ข้อความที่เป็นข้อมูลจากสมาชิก */
+.report-item span,
+.report-card span,
+.report-content span {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ถ้ามี div ที่แสดงรายละเอียดรายงาน */
+.report-item div,
+.report-card div,
+.report-content div {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+
+@media (max-width: 600px) {
+  .report-page {
+    padding: 100px 15px 50px;
+  }
+
+  .report-header h1 {
+    font-size: 32px;
+  }
+
+  .report-form {
+    padding: 20px;
+  }
+
+  .report-item,
+  .report-card {
+    width: 100%;
+  }
+}
