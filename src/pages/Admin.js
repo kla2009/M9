@@ -502,18 +502,7 @@ function Admin() {
     checkCompletedCount;
 
 
-  const checkTotalCompleted =
-    checkMemberList.filter(
-      (member) =>
-        isCheckComplete(
-          member.id
-        )
-    ).length;
 
-
-  const checkTotalIncomplete =
-    checkMemberList.length -
-    checkTotalCompleted;
 
 
   // =========================
