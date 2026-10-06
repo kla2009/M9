@@ -1,3 +1,4 @@
+
 * {
   margin: 0;
   padding: 0;
@@ -6,22 +7,42 @@
 
 html {
   scroll-behavior: smooth;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
   background: #0b0b0b;
   color: white;
+
   font-family: Arial, Helvetica, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .app {
   min-height: 100vh;
+
   background:
-    radial-gradient(circle at 80% 30%, rgba(255, 0, 0, 0.12), transparent 30%),
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(255, 0, 0, 0.12),
+      transparent 30%
+    ),
     #0b0b0b;
 }
 
-/* Navbar */
+
+/* ================================
+   DESKTOP NAVBAR
+================================ */
 
 .navbar {
   width: 90%;
@@ -29,7 +50,6 @@ body {
   height: 70px;
 
   margin: 20px auto;
-
   padding: 0 25px;
 
   display: flex;
@@ -40,13 +60,27 @@ body {
   border-radius: 20px;
 
   background: rgba(20, 20, 20, 0.8);
+
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
 .logo {
   font-size: 25px;
   font-weight: 800;
   color: #ff3030;
+
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  width: 75px;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
 }
 
 .menu {
@@ -56,8 +90,11 @@ body {
 
 .menu a {
   color: #aaa;
+
   text-decoration: none;
+
   font-size: 14px;
+
   transition: 0.3s;
 }
 
@@ -75,6 +112,7 @@ body {
   padding: 11px 20px;
 
   cursor: pointer;
+
   font-weight: bold;
 
   transition: 0.3s;
@@ -82,10 +120,14 @@ body {
 
 .nav-btn:hover {
   background: #ff5050;
+
   transform: translateY(-2px);
 }
 
-/* Hero */
+
+/* ================================
+   HERO
+================================ */
 
 .hero {
   width: 90%;
@@ -104,13 +146,16 @@ body {
 
 .hero-content {
   max-width: 600px;
+
   transform: translateY(-60px);
 }
 
 .tag {
   color: #ff3030;
+
   font-size: 13px;
   font-weight: bold;
+
   letter-spacing: 3px;
 
   margin-bottom: 20px;
@@ -118,7 +163,9 @@ body {
 
 h1 {
   font-size: clamp(55px, 7vw, 95px);
+
   line-height: 0.95;
+
   letter-spacing: -5px;
 }
 
@@ -126,9 +173,15 @@ h1 span {
   color: #ff3030;
 }
 
+.never-give-up {
+  white-space: nowrap;
+}
+
 .description {
   color: #888;
+
   font-size: 17px;
+
   line-height: 1.7;
 
   max-width: 480px;
@@ -136,11 +189,16 @@ h1 span {
   margin-top: 30px;
 }
 
-/* Buttons */
+
+/* ================================
+   BUTTONS
+================================ */
 
 .buttons {
   display: flex;
+
   gap: 15px;
+
   margin-top: 30px;
 }
 
@@ -154,32 +212,41 @@ h1 span {
   font-weight: bold;
 
   cursor: pointer;
+
   transition: 0.3s;
 }
 
 .primary-btn {
   border: none;
+
   background: #ff3030;
   color: white;
 }
 
 .primary-btn:hover {
   background: #ff5050;
+
   transform: translateY(-3px);
 }
 
 .secondary-btn {
   background: transparent;
+
   color: white;
+
   border: 1px solid #333;
 }
 
 .secondary-btn:hover {
   border-color: #ff3030;
+
   color: #ff3030;
 }
 
-/* Right Card */
+
+/* ================================
+   HERO CARD
+================================ */
 
 .hero-card {
   width: 380px;
@@ -202,9 +269,11 @@ h1 span {
 
 .hero-card span {
   position: relative;
+
   z-index: 2;
 
   font-size: 90px;
+
   font-weight: 900;
 
   color: white;
@@ -225,16 +294,36 @@ h1 span {
   opacity: 0.9;
 }
 
-/* Responsive */
+
+/* ================================
+   HERO IMAGE
+================================ */
+
+.hero-image img {
+  width: 65%;
+  height: 65%;
+
+  transform: translate(250px, -50px);
+
+  object-fit: contain;
+}
+
+
+/* ================================
+   GENERAL RESPONSIVE
+================================ */
 
 @media (max-width: 800px) {
+
   .menu {
     display: none;
   }
 
   .hero {
     flex-direction: column;
+
     justify-content: center;
+
     text-align: center;
   }
 
@@ -253,67 +342,130 @@ h1 span {
   }
 }
 
-.hero-image img {
-  width: 65%;
-  height: 65%;
-  transform: translate(250px, -50px);
-  object-fit: contain;
-}
-
-.logo img {
-  width: 75px;
-  height: auto;
-  display: block;
-  object-fit: contain;
-}
-
-.never-give-up {
-  white-space: nowrap;
-}
 
 /* ================================
-   RESPONSIVE - MOBILE
+   MOBILE RESPONSIVE
 ================================ */
 
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  width: 100%;
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 @media (max-width: 768px) {
+
   body {
     overflow-x: hidden;
   }
 
-  /* Navbar */
-  nav {
-    width: 100%;
+  .navbar {
+    display: none;
   }
 
-  /* Container */
-  .container {
+  .app {
     width: 100%;
     max-width: 100%;
+
+    padding-bottom: 90px;
+  }
+
+  .hero {
+    width: 100%;
+    max-width: 100%;
+
+    min-height: auto;
+
+    padding: 80px 20px 40px;
+
+    gap: 30px;
+  }
+
+  .hero-content {
+    width: 100%;
+    max-width: 100%;
+
+    transform: none;
+  }
+
+  .tag {
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-size: clamp(40px, 12vw, 70px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    max-width: 100%;
+  }
+
+  .never-give-up {
+    white-space: nowrap;
+  }
+
+  .description {
+    width: 100%;
+    max-width: 480px;
+
+    margin: 25px auto 0;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+  }
+
+  .buttons {
+    width: 100%;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    min-width: 120px;
+
+    padding: 13px 20px;
+  }
+
+  .hero-image {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+  }
+
+  .hero-image img {
+    width: 75%;
+    height: auto;
+
+    transform: none;
+  }
+
+  .hero-card {
+    width: 280px;
+    height: 280px;
+  }
+
+  section {
+    width: 100%;
+    max-width: 100%;
+
     padding-left: 20px;
     padding-right: 20px;
   }
 
-  /* Headings */
-  h1 {
-    font-size: clamp(42px, 13vw, 70px);
-    line-height: 0.95;
-    letter-spacing: -3px;
+  .container {
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   h2 {
@@ -324,25 +476,107 @@ img {
     font-size: clamp(24px, 7vw, 36px);
   }
 
-  /* Sections */
-  section {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* Text */
   p {
     max-width: 100%;
+
     font-size: 15px;
+
     line-height: 1.7;
   }
 
-  /* Buttons */
   button,
   a {
     max-width: 100%;
+  }
+}
+
+
+/* ================================
+   MOBILE NAVIGATION
+================================ */
+
+.mobile-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+
+  .mobile-nav {
+    position: fixed;
+
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+
+    height: 68px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 4px;
+
+    padding: 5px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    background: rgba(10, 10, 10, 0.94);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border: 1px solid #252525;
+
+    border-radius: 18px;
+
+    z-index: 9999;
+
+    scrollbar-width: none;
+  }
+
+  .mobile-nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-nav a {
+    flex: 0 0 72px;
+
+    height: 56px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 4px;
+
+    color: #777;
+
+    text-decoration: none;
+
+    font-size: 10px;
+
+    border-radius: 12px;
+
+    transition: 0.2s ease;
+  }
+
+  .mobile-nav a:hover {
+    color: #fff;
+  }
+
+  .mobile-nav a:active {
+    color: #ff3030;
+  }
+
+  .mobile-nav-icon {
+    font-size: 18px;
+
+    line-height: 1;
   }
 }
 
@@ -353,9 +587,15 @@ img {
 
 @media (max-width: 480px) {
 
+  .hero {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   h1 {
-    font-size: clamp(38px, 12vw, 58px);
-    letter-spacing: -2.5px;
+    font-size: clamp(36px, 11vw, 58px);
+
+    letter-spacing: -2px;
   }
 
   h2 {
@@ -371,4 +611,27 @@ img {
     padding-left: 16px;
     padding-right: 16px;
   }
+
+  .mobile-nav {
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+
+    height: 64px;
+
+    border-radius: 16px;
+  }
+
+  .mobile-nav a {
+    flex: 0 0 68px;
+
+    height: 54px;
+
+    font-size: 9px;
+  }
+
+  .mobile-nav-icon {
+    font-size: 17px;
+  }
 }
+

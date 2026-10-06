@@ -42,7 +42,9 @@ function Home() {
           <br />
           <span>Unity.</span>
           <br />
-          <h1 className="never-give-up">Never Give Up.</h1>
+          <h1 className="never-give-up">
+            Never Give Up.
+          </h1>
         </h1>
 
         <p className="description">
@@ -52,17 +54,12 @@ function Home() {
 
         <div className="buttons">
 
-          {/* RULES */}
-
           <Link
             to="/rules"
             className="primary-btn"
           >
             Rules
           </Link>
-
-
-          {/* VIEW */}
 
           <Link
             to="/view"
@@ -99,7 +96,7 @@ function App() {
 
 
         {/* =========================
-            NAVBAR
+            DESKTOP NAVBAR
         ========================= */}
 
         <nav className="navbar">
@@ -152,8 +149,6 @@ function App() {
           </div>
 
 
-          {/* ADMIN LOGIN */}
-
           <Link
             to="/admin-login"
             className="nav-btn"
@@ -165,37 +160,69 @@ function App() {
 
 
         {/* =========================
+            MOBILE BOTTOM NAV
+        ========================= */}
+
+        <nav className="mobile-nav">
+
+          <Link to="/">
+            <span className="mobile-nav-icon">⌂</span>
+            <span>Home</span>
+          </Link>
+
+          <Link to="/member">
+            <span className="mobile-nav-icon">♟</span>
+            <span>Member</span>
+          </Link>
+
+          <Link to="/work">
+            <span className="mobile-nav-icon">▣</span>
+            <span>Work</span>
+          </Link>
+
+          <Link to="/absence">
+            <span className="mobile-nav-icon">📋</span>
+            <span>Absence</span>
+          </Link>
+
+          <Link to="/check">
+            <span className="mobile-nav-icon">✓</span>
+            <span>Check</span>
+          </Link>
+
+          <Link to="/bank">
+            <span className="mobile-nav-icon">฿</span>
+            <span>BANK</span>
+          </Link>
+
+          <Link to="/report">
+            <span className="mobile-nav-icon">≡</span>
+            <span>Report</span>
+          </Link>
+
+        </nav>
+
+
+        {/* =========================
             ROUTES
         ========================= */}
 
         <Routes>
-
-
-          {/* HOME */}
 
           <Route
             path="/"
             element={<Home />}
           />
 
-
-          {/* RULES */}
-
           <Route
             path="/rules"
             element={<Rules />}
           />
 
-
-          {/* VIEW */}
-
           <Route
             path="/view"
             element={<View />}
           />
-
-
-          {/* MEMBER */}
 
           <Route
             path="/member"
@@ -207,58 +234,37 @@ function App() {
             element={<BitTown />}
           />
 
-
-          {/* WORK */}
-
           <Route
             path="/work"
             element={<Work />}
           />
-
-
-          {/* ABSENCE */}
 
           <Route
             path="/absence"
             element={<Absence />}
           />
 
-
-          {/* CHECK */}
-
           <Route
             path="/check"
             element={<Check />}
           />
-
-
-          {/* BANK */}
 
           <Route
             path="/bank"
             element={<Bank />}
           />
 
-
-          {/* WHEEL */}
-
           <Route
             path="/wheel"
             element={<Wheel />}
           />
-
-
-          {/* REPORT */}
 
           <Route
             path="/report"
             element={<Report />}
           />
 
-
-          {/* =========================
-              ADMIN
-          ========================= */}
+          {/* ADMIN */}
 
           <Route
             path="/admin-login"
@@ -285,3 +291,4 @@ function App() {
 
 
 export default App;
+
