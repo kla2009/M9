@@ -42,7 +42,7 @@ function Home() {
           <br />
           <span>Unity.</span>
           <br />
-          Never Give Up.
+          <h1 className="never-give-up">Never Give Up.</h1>
         </h1>
 
         <p className="description">
