@@ -335,3 +335,284 @@
   }
 
 }
+
+/* ========================================
+   MEMBER ITEM
+======================================== */
+
+.member-item {
+  width: 100%;
+  border: 1px solid #242424;
+  background: #0b0b0b;
+  color: #fff;
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.member-item:hover {
+  transform: translateY(-2px);
+  border-color: #e50914;
+  background: #101010;
+}
+
+.member-item-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 0;
+}
+
+.member-small-avatar {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 50%;
+  background: #161616;
+  border: 1px solid #292929;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: #e50914;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.member-small-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-item h2 {
+  margin: 0;
+}
+
+.member-item p {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 12px;
+}
+
+.member-item .status {
+  flex-shrink: 0;
+}
+
+
+/* ========================================
+   MEMBER PROFILE
+======================================== */
+
+.member-profile {
+  width: min(900px, 100%);
+  margin: 0 auto;
+  padding: 30px 0 70px;
+}
+
+.member-back-button {
+  border: 1px solid #292929;
+  background: transparent;
+  color: #999;
+  padding: 11px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-bottom: 25px;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.member-back-button:hover {
+  color: #fff;
+  border-color: #e50914;
+  background: #111;
+}
+
+
+/* ========================================
+   PROFILE HEADER
+======================================== */
+
+.member-profile-header {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 30px;
+  border: 1px solid #242424;
+  border-radius: 22px;
+  background: #0b0b0b;
+  margin-bottom: 18px;
+}
+
+.member-profile-image {
+  width: 150px;
+  height: 150px;
+  min-width: 150px;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #151515;
+  border: 1px solid #2c2c2c;
+}
+
+.member-profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-profile-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #e50914;
+  font-size: 52px;
+  font-weight: 900;
+}
+
+.member-profile-title p {
+  color: #e50914;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 0 8px;
+}
+
+.member-profile-title h1 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 48px);
+  line-height: 1.05;
+}
+
+.member-profile-title span {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 12px;
+  border-radius: 8px;
+  background: #161616;
+  color: #aaa;
+  font-size: 12px;
+}
+
+
+/* ========================================
+   PROFILE INFO
+======================================== */
+
+.member-profile-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.profile-info-card {
+  padding: 22px;
+  min-height: 100px;
+  border: 1px solid #242424;
+  border-radius: 16px;
+  background: #0b0b0b;
+}
+
+.profile-info-card span {
+  display: block;
+  color: #666;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.profile-info-card strong {
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.profile-motto {
+  grid-column: 1 / -1;
+}
+
+.profile-motto strong {
+  color: #ddd;
+  font-style: italic;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .member-item {
+    padding: 15px;
+  }
+
+  .member-item h2 {
+    font-size: 15px;
+  }
+
+  .member-item p {
+    font-size: 10px;
+  }
+
+  .member-item .status {
+    font-size: 10px;
+  }
+
+  .member-profile {
+    padding-top: 20px;
+  }
+
+  .member-profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 22px;
+  }
+
+  .member-profile-image {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+  }
+
+  .member-profile-title h1 {
+    font-size: 27px;
+  }
+
+  .member-profile-info {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-motto {
+    grid-column: auto;
+  }
+
+}
+
+.instagram-link {
+  color: #e50914;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+.instagram-link:hover {
+  color: #ff4b4b;
+  text-decoration: underline;
+}

@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import '../CSS/Absence.css';
 
@@ -130,7 +129,8 @@ function Absence() {
         imageFile:
           image || null,
 
-        createdAt:
+        // เวลาที่กดส่งใบลาอัตโนมัติ
+        submittedAt:
           new Date().toISOString()
 
       };
@@ -561,4 +561,3 @@ function Absence() {
 }
 
 export default Absence;
-

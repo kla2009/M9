@@ -428,9 +428,6 @@ function Admin() {
           ?.requiredItemsByHouse
           ?.[checkHouse];
 
-      // ถ้า Week เก่ายังไม่มี
-      // requiredItemsByHouse
-      // ให้ใช้ค่าเริ่มต้นของบ้านนั้น
       if (!saved) {
         return defaultHouseItems;
       }
@@ -502,9 +499,6 @@ function Admin() {
     checkCompletedCount;
 
 
-
-
-
   // =========================
   // FORMAT DATE
   // =========================
@@ -523,6 +517,37 @@ function Admin() {
     }
 
     return `${parts[2]}/${parts[1]}/${parts[0]}`;
+
+  };
+
+
+  // =========================
+  // FORMAT SUBMITTED TIME
+  // =========================
+
+  const formatSubmittedTime = (submittedAt) => {
+
+    if (!submittedAt) {
+      return '-';
+    }
+
+    const date =
+      new Date(submittedAt);
+
+    if (Number.isNaN(date.getTime())) {
+      return '-';
+    }
+
+    return date.toLocaleTimeString(
+      'th-TH',
+      {
+        timeZone: 'Asia/Bangkok',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }
+    );
 
   };
 
@@ -2022,6 +2047,14 @@ function Admin() {
                     </span>
 
 
+                    {/* เวลาที่ส่งใบลา */}
+                    {item.submittedAt && (
+                      <span>
+                        ส่งใบลาเมื่อ: {formatSubmittedTime(item.submittedAt)} น.
+                      </span>
+                    )}
+
+
                     {item.startTime &&
                       item.endTime && (
 
@@ -2037,8 +2070,9 @@ function Admin() {
 
 
                     <p>
-                        เหตุผล: {item.reason}
+                      เหตุผล: {item.reason}
                     </p>
+
 
                     {item.image && (
                       <div className="absence-image-wrapper">
@@ -2131,6 +2165,14 @@ function Admin() {
                       </span>
 
 
+                      {/* เวลาที่ส่งใบลา */}
+                      {item.submittedAt && (
+                        <span>
+                          ส่งใบลาเมื่อ: {formatSubmittedTime(item.submittedAt)} น.
+                        </span>
+                      )}
+
+
                       {item.startTime &&
                         item.endTime && (
 
@@ -2148,6 +2190,7 @@ function Admin() {
                       <p>
                         เหตุผล: {item.reason}
                       </p>
+
 
                       {item.image && (
                         <div className="absence-image-wrapper">
@@ -2301,3 +2344,4 @@ function Admin() {
 
 
 export default Admin;
+
