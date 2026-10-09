@@ -1,6 +1,10 @@
 import { useState } from "react";
 import "../../CSS/BitTown.css";
 import Kla from '../../images/Kla.jpg';
+import lilana from '../../images/liliana.jpg';
+import tiger from '../../images/TIGER.jpg';
+import Mafai from '../../images/Mafai.png';
+//import { Link } from "react-router-dom";
 
 const members = [
   {
@@ -17,11 +21,12 @@ const members = [
     id: "ma fai-stayyungforever",
     name: "MAFAI STAYYUNGFOREVER",
     role: "Sub-Leader",
-    image: "",
-    icPhone: "ยังไม่ได้ระบุ",
-    face: "ยังไม่ได้ระบุ",
-    instagram: "ยังไม่ได้ระบุ",
-    motto: "ยังไม่ได้ระบุ",
+    image: Mafai,
+    icPhone: "960150",
+    face: "Mafai Trixielynn",
+    instagram: "_dabirdhitmeflow",
+    instagramUrl:"https://www.instagram.com/_dabirdhitmeflow/",
+    motto: "Stayyungforever บ้านนี้มีเเต่คนลาย",
   },
   {
     id: "x-ray-real",
@@ -117,11 +122,12 @@ const members = [
     id: "tiger-real",
     name: "TIGER REAL",
     role: "Member",
-    image: "",
-    icPhone: "ยังไม่ได้ระบุ",
-    face: "ยังไม่ได้ระบุ",
-    instagram: "ยังไม่ได้ระบุ",
-    motto: "ยังไม่ได้ระบุ",
+    image: tiger,
+    icPhone: "500448",
+    face: "-",
+    instagram: "xm_tigerrrx",
+    instagramUrl: "https://www.instagram.com/xm_tigerrrx?stkn=MWFuNHRrM3N0azg0ZQ==",
+    motto: "ดูดหรรมมันคับคอ เลยต้องดูดพอตแทน",
   },
   {
     id: "khom-tawin",
@@ -192,7 +198,7 @@ const members = [
     face: "Kla Losemamind",
     instagram: "_shrbc",
     instagramUrl: "https://www.instagram.com/_shrbc/",
-    motto: "ผัวหนูนอนพี่ออนอยู่นะ",
+    motto: "ขวารู็ใจ ซ้ายรู้มือ",
   },
   {
     id: "thid-deftfox",
@@ -228,11 +234,12 @@ const members = [
     id: "liliana-hawkins",
     name: "LILIANA HAWKINS",
     role: "SUB-MEMBER",
-    image: "",
-    icPhone: "ยังไม่ได้ระบุ",
-    face: "",
-    instagram: "",
-    motto: "",
+    image: lilana,
+    icPhone: "221686",
+    face: "Pxint Nw",
+    instagram: "pxint_24",
+    instagramUrl: "https://www.instagram.com/pxint_24?rpxt=NHMyZHZieXZiYXFm",
+    motto: "หมาล่ายังอร่อยขนาดนี้ หมาจริงจะอร่อยขนาดไหน",
   },
   {
     id: "godzilla-real",
